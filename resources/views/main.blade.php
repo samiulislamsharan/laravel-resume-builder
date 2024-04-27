@@ -9,8 +9,8 @@
             <p class="text-gray-600 dark:text-gray-400">Create your resume in minutes</p>
         </div>
         <div class="flex flex-col items-center mt-8">
-            <a href="#"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create a new resume</a>
+            <a href="{{ route('detail.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create
+                a new resume</a>
         </div>
     </div>
 @endsection
