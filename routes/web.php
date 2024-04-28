@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDetailController;
 use Illuminate\Support\Facades\Route;
@@ -29,9 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/user-detail/create', [UserDetailController::class, 'create'])->name('detail.create');
-    Route::post('/user-detail/store', [UserDetailController::class, 'store'])->name('detail.store');
-});
+// user resource controller for user details
+Route::resource('user-details', UserDetailController::class)->only(['create', 'store', 'show', 'edit', 'update'])->middleware('auth');
+
+// user resource controller for education
+Route::resource('education', EducationController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'])->middleware('auth');
 
 require __DIR__ . '/auth.php';
