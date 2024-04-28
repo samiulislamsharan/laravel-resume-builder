@@ -43,7 +43,7 @@ class UserDetailController extends Controller
         $userDetail->address = $request->address;
         $userDetail->save();
 
-        return back();
+        return redirect()->route('education.create');
     }
 
     /**
