@@ -19,30 +19,30 @@
                             <p class="text-sm text-gray-600 dark:text-gray-400">{{ $education->start_date }} -
                                 {{ $education->end_date }} | {{ $education->degree }}</p>
                             <p class="text-sm text-gray-600 dark:text-gray-400">{{ $education->field_of_study }}</p>
-                            <ul class="list-disc ext-gray-600 dark:text-gray-400">
-                                <li>Major: </li>
-                                <li>GPA: </li>
-                            </ul>
-                            {{-- edit and delete button --}}
-                            <div class="flex mt-4 items center">
-                                <a href="{{ route('education.edit', $education->id) }}"
-                                    class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">Edit</a>
-                                <form action="{{ route('education.destroy', $education->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                        class="px-4 py-2 ml-4 text-sm text-white bg-red-500 rounded hover:bg-red-600">Delete</button>
-                                </form>
-                            </div>
+                            <ul class="font-bold list-none ext-gray-600 dark:text-gray-400">
+                                {{-- edit and delete button --}}
+                                <div class="flex mt-4 items center">
+                                    <a href="{{ route('education.edit', $education->id) }}"
+                                        class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">Edit</a>
+                                    <form action="{{ route('education.destroy', $education->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="px-4 py-2 ml-4 text-sm text-white bg-red-500 rounded hover:bg-red-600">Delete</button>
+                                    </form>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         @endforeach
         {{-- add another education button --}}
-        <div class="flex flex-col items-center mt-8">
+        <div class="flex flex-row items-center gap-2 mt-8">
             <a href="{{ route('education.create') }}"
                 class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">Add Another Education</a>
+            <p class="text-white">Or</p>
+            <a href="{{ route('experience.create') }}"
+                class="px-4 py-2 text-sm text-white bg-purple-500 rounded hover:bg-purple-600">Add Work Experience</a>
         </div>
     </div>
 @endsection
