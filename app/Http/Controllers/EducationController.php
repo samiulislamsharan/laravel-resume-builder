@@ -12,11 +12,9 @@ class EducationController extends Controller
      */
     public function index()
     {
-        $education = auth()->user()->education;
+        $educations = auth()->user()->education;
 
-        return view('education.index', [
-            'educations' => $education,
-        ]);
+        return view('education.index', compact('educations'));
     }
 
     /**
