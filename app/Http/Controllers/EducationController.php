@@ -56,7 +56,8 @@ class EducationController extends Controller
      */
     public function edit(Education $education)
     {
-        //
+        return view('education.index', compact('education'));
+
     }
 
     /**
@@ -64,7 +65,17 @@ class EducationController extends Controller
      */
     public function update(Request $request, Education $education)
     {
-        //
+        $request->validate([
+            'school_name' => 'required',
+            'degree' => 'required',
+            'field_of_study' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        $education->update($request->all());
+
+        return redirect()->route('education.index');
     }
 
     /**
@@ -72,6 +83,8 @@ class EducationController extends Controller
      */
     public function destroy(Education $education)
     {
-        //
+        $education->delete();
+
+        return redirect()->route('education.index');
     }
 }
