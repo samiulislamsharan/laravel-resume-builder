@@ -9,6 +9,7 @@
         <div class="flex flex-col items-center mt-8">
             <form action="{{ route('education.store') }}" method="POST" class="w-full max-w-lg">
                 @csrf
+                @method('POST')
                 <div class="flex flex-wrap mb-6 -mx-3">
                     <div class="w-full px-3">
                         <label for="school_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
