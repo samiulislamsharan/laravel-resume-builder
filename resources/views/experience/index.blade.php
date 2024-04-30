@@ -44,8 +44,8 @@
             <a href="{{ route('experience.create') }}"
                 class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">Add Another Experience</a>
             <p class="text-white">Or</p>
-            <a href="{{ route('experience.create') }}"
-                class="px-4 py-2 text-sm text-white bg-purple-500 rounded hover:bg-purple-600">Add Work Experience</a>
+            <a href="{{ route('skill.create') }}"
+                class="px-4 py-2 text-sm text-white bg-purple-500 rounded hover:bg-purple-600">Add Skills</a>
         </div>
     </div>
 @endsection
