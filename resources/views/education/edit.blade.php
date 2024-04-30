@@ -7,7 +7,6 @@
             <p class="text-gray-600 dark:text-gray-400">Fill in your details</p>
         </div>
         <div class="flex flex-col items-center mt-8">
-            {{-- form for editing school name, degree, field of study, start date and end date --}}
             <form action="{{ route('education.update', $education->id) }}" method="POST" class="w-full max-w-lg">
                 @csrf
                 @method('PUT')
