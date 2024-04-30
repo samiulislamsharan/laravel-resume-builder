@@ -31,6 +31,7 @@
                                             class="px-4 py-2 ml-4 text-sm text-white bg-red-500 rounded hover:bg-red-600">Delete</button>
                                     </form>
                                 </div>
+                            </ul>
                         </div>
                     </div>
                 </div>
