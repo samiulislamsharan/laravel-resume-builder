@@ -3,6 +3,7 @@
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserDetailController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,5 +40,8 @@ Route::resource('education', EducationController::class)->only(['index', 'create
 
 // user resource controller for experience
 Route::resource('experience', ExperienceController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'])->middleware('auth');
+
+// user resource controller for skill
+Route::resource('skill', SkillController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'])->middleware('auth');
 
 require __DIR__ . '/auth.php';
