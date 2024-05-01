@@ -32,16 +32,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// user resource controller for user details
-Route::resource('user-details', UserDetailController::class)->only(['create', 'store', 'show', 'edit', 'update'])->middleware('auth');
+Route::middleware('auth')->group(function () {
+    // resource controller for user details
+    Route::resource('user-details', UserDetailController::class)->only(['create', 'store', 'show', 'edit', 'update']);
 
-// user resource controller for education
-Route::resource('education', EducationController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'])->middleware('auth');
+    // resource controller for education
+    Route::resource('education', EducationController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
 
-// user resource controller for experience
-Route::resource('experience', ExperienceController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'])->middleware('auth');
+    // resource controller for experience
+    Route::resource('experience', ExperienceController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
 
-// user resource controller for skill
-Route::resource('skill', SkillController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'])->middleware('auth');
+    // resource controller for skill
+    Route::resource('skill', SkillController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+});
 
 require __DIR__ . '/auth.php';
