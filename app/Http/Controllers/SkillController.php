@@ -53,7 +53,7 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        //
+        return view('skill.edit', compact('skill'));
     }
 
     /**
@@ -61,7 +61,14 @@ class SkillController extends Controller
      */
     public function update(Request $request, Skill $skill)
     {
-        //
+        $formData = $request->validate([
+            'name' => 'required',
+            'rating' => 'numeric',
+        ]);
+
+        $skill->update($formData);
+
+        return redirect()->route('skill.index');
     }
 
     /**
@@ -69,6 +76,8 @@ class SkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        $skill->delete();
+
+        return redirect()->route('skill.index');
     }
 }
