@@ -32,7 +32,7 @@ class SkillController extends Controller
     {
         $formData = $request->validate([
             'name' => 'required',
-            'rating' => 'required'|'numeric'|'min:1'|'max:5',
+            'rating' => 'numeric',
         ]);
 
         auth()->user()->skills()->create($formData);
