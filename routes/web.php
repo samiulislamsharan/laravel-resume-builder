@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     // resource controller for user details
-    Route::resource('user-details', UserDetailController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+    Route::resource('user-detail', UserDetailController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
 
     // resource controller for education
     Route::resource('education', EducationController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
