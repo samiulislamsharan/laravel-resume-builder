@@ -7,7 +7,7 @@
             <p class="text-gray-600 dark:text-gray-400">Fill in your details</p>
         </div>
         <div class="flex flex-col items-center mt-8">
-            <form action="{{ route('user-details.store') }}" method="POST" class="w-full max-w-lg">
+            <form action="{{ route('user-detail.store') }}" method="POST" class="w-full max-w-lg">
                 @csrf
                 <div class="flex flex-wrap mb-6 -mx-3">
                     <div class="w-full px-3">
