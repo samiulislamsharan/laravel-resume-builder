@@ -15,5 +15,6 @@ class UserDetail extends Model
         'email',
         'phone_number',
         'address',
+        'summary',
     ];
 }
