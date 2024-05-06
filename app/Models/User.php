@@ -56,4 +56,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Skill::class);
     }
+
+    // write the userDetail class one user can have many user details
+    public function userDetail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
 }
