@@ -23,8 +23,8 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-            <header class="bg-white dark:bg-gray-800 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header class="bg-white shadow dark:bg-gray-800">
+                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
@@ -35,6 +35,32 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+        // create a dialog element
+        var dialog = document.createElement('dialog');
+
+        // create a button element
+        var button = document.createElement('button');
+        button.textContent = 'Close';
+        button.className = 'btn';
+
+        // append the button to the dialog
+        dialog.appendChild(button);
+
+        // append the dialog to the body
+        document.body.appendChild(dialog);
+
+        // create a function to show the dialog
+        function showModal() {
+            dialog.showModal();
+        }
+
+        // create a function to close the dialog
+        function closeModal() {
+            dialog.close();
+        }
+    </script>
 </body>
 
 </html>
