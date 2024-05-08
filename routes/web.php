@@ -3,6 +3,7 @@
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserDetailController;
 use Illuminate\Support\Facades\Route;
@@ -45,5 +46,9 @@ Route::middleware('auth')->group(function () {
     // resource controller for skill
     Route::resource('skill', SkillController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
 });
+
+Route::get('/resume', [ResumeController::class, 'index'])->name('resume.index')->middleware('auth');
+
+Route::get('/resume/download', [ResumeController::class, 'download'])->name('resume.download')->middleware('auth');
 
 require __DIR__ . '/auth.php';
