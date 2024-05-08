@@ -24,14 +24,24 @@
                                 {{-- edit and delete button --}}
                                 <div class="flex mt-4 items center">
                                     <a href="{{ route('user-detail.edit', $userDetail->id) }}"
-                                        class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">Edit</a>
-                                    <a href="{{ route('user-detail.show', $userDetail->id) }}"
-                                        class="px-4 py-2 ml-4 text-sm text-white bg-green-500 rounded hover:bg-green-600">Resume</a>
+                                        class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">
+                                        Edit
+                                    </a>
+                                    {{-- <a href="{{ route('resume.index', $userDetail->id) }}"
+                                        class="px-4 py-2 ml-4 text-sm text-white bg-green-500 rounded hover:bg-green-600">
+                                        Resume
+                                    </a> --}}
+                                    <a onclick="resume_modal.showModal()"
+                                        class="px-4 py-2 ml-4 text-sm text-white bg-green-500 rounded hover:bg-green-600">
+                                        Resume
+                                    </a>
                                     <form action="{{ route('user-detail.destroy', $userDetail->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                            class="px-4 py-2 ml-4 text-sm text-white bg-red-500 rounded hover:bg-red-600">Delete</button>
+                                            class="px-4 py-2 ml-4 text-sm text-white bg-red-500 rounded hover:bg-red-600">
+                                            Delete
+                                        </button>
                                     </form>
                                 </div>
                             </ul>
@@ -40,5 +50,29 @@
                 </div>
             </div>
         @endforeach
+
+        <!-- create a dialog element -->
+        <dialog id="resume_modal"
+            class="w-full p-10 text-black transition-all duration-300 rounded-md dark:bg-gray-800 dark:text-white backdrop-blur-sm">
+
+            <div class="flex flex-col gap-4">
+                {{-- add the resume view in iframe --}}
+                <iframe src="{{ route('resume.index', $userDetail->id) }}" class="w-full bg-white h-[600px]"></iframe>
+
+                <div class="flex flex-row gap-4">
+                    {{-- add download button --}}
+                    <a href="{{ route('resume.download') }}"
+                        class="px-4 py-2 my-4 text-white transition-all duration-300 bg-blue-500 rounded-md hover:bg-gray-700 dark:bg-blue-600">
+                        Download
+                    </a>
+
+                    <button
+                        class="px-4 py-2 my-4 text-white transition-all duration-300 bg-blue-500 rounded-md hover:bg-blue-600 dark:bg-gray-700"
+                        onclick="resume_modal.close()">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </dialog>
     </div>
 @endsection
