@@ -40,7 +40,7 @@ class EducationController extends Controller
 
         auth()->user()->education()->create($request->all());
 
-        return redirect()->route('education.index');
+        return redirect()->route('experience.create');
     }
 
     /**
