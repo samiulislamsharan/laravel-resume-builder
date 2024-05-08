@@ -9,26 +9,32 @@
         </div>
 
         @foreach ($educations as $education)
-            {{-- render educational summary in card forms --}}
             <div class="flex flex-col items-center mt-8">
                 <div class="w-full max -w-lg">
                     <div class="overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
                         <div class="p-4">
                             <h3 class="mb-2 text-xl font-bold text-gray-800 dark:text-gray-100">{{ $education->school_name }}
                             </h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">{{ $education->start_date }} -
-                                {{ $education->end_date }} | {{ $education->degree }}</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">{{ $education->field_of_study }}</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                {{ $education->start_date }} -
+                                {{ $education->end_date }} | {{ $education->degree }}
+                            </p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                {{ $education->field_of_study }}
+                            </p>
                             <ul class="font-bold list-none ext-gray-600 dark:text-gray-400">
-                                {{-- edit and delete button --}}
                                 <div class="flex mt-4 items center">
                                     <a href="{{ route('education.edit', $education->id) }}"
-                                        class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">Edit</a>
+                                        class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">
+                                        Edit
+                                    </a>
                                     <form action="{{ route('education.destroy', $education->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                            class="px-4 py-2 ml-4 text-sm text-white bg-red-500 rounded hover:bg-red-600">Delete</button>
+                                            class="px-4 py-2 ml-4 text-sm text-white bg-red-500 rounded hover:bg-red-600">
+                                            Delete
+                                        </button>
                                     </form>
                                 </div>
                             </ul>
