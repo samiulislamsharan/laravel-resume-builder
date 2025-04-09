@@ -8,7 +8,6 @@
                 class="px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600">Add User Details</a>
         </div>
         {{-- render the user details like above card. there will be full name and email. buttons: edit, resume and delete --}}
-        @foreach ($userDetails as $userDetail)
         @forelse ($userDetails as $userDetail)
             <div class="flex flex-col items-center mt-8">
                 <div class="w-full max -w-lg">
