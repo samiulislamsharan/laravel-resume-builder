@@ -49,6 +49,30 @@
                     </div>
                 </div>
             </div>
+
+            <!-- create a dialog element -->
+            <dialog id="resume_modal"
+                class="w-full p-10 text-black transition-all duration-300 rounded-md dark:bg-gray-800 dark:text-white backdrop-blur-sm">
+
+                <div class="flex flex-col gap-4">
+                    {{-- add the resume view in iframe --}}
+                    <iframe src="{{ route('resume.index', $userDetail->id) }}" class="w-full bg-white h-[600px]"></iframe>
+
+                    <div class="flex flex-row gap-4">
+                        {{-- add download button --}}
+                        <a href="{{ route('resume.download') }}"
+                            class="px-4 py-2 my-4 text-white transition-all duration-300 bg-blue-500 rounded-md hover:bg-gray-700 dark:bg-blue-600">
+                            Download
+                        </a>
+
+                        <button
+                            class="px-4 py-2 my-4 text-white transition-all duration-300 bg-blue-500 rounded-md hover:bg-blue-600 dark:bg-gray-700"
+                            onclick="resume_modal.close()">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </dialog>
         @empty
             <div class="flex flex-col items-center mt-8">
                 <div class="w-full max -w-lg">
@@ -63,30 +87,5 @@
                 </div>
             </div>
         @endforelse
-
-
-        <!-- create a dialog element -->
-        <dialog id="resume_modal"
-            class="w-full p-10 text-black transition-all duration-300 rounded-md dark:bg-gray-800 dark:text-white backdrop-blur-sm">
-
-            <div class="flex flex-col gap-4">
-                {{-- add the resume view in iframe --}}
-                <iframe src="{{ route('resume.index', $userDetail->id) }}" class="w-full bg-white h-[600px]"></iframe>
-
-                <div class="flex flex-row gap-4">
-                    {{-- add download button --}}
-                    <a href="{{ route('resume.download') }}"
-                        class="px-4 py-2 my-4 text-white transition-all duration-300 bg-blue-500 rounded-md hover:bg-gray-700 dark:bg-blue-600">
-                        Download
-                    </a>
-
-                    <button
-                        class="px-4 py-2 my-4 text-white transition-all duration-300 bg-blue-500 rounded-md hover:bg-blue-600 dark:bg-gray-700"
-                        onclick="resume_modal.close()">
-                        Close
-                    </button>
-                </div>
-            </div>
-        </dialog>
     </div>
 @endsection
