@@ -9,6 +9,7 @@
         </div>
         {{-- render the user details like above card. there will be full name and email. buttons: edit, resume and delete --}}
         @foreach ($userDetails as $userDetail)
+        @forelse ($userDetails as $userDetail)
             <div class="flex flex-col items-center mt-8">
                 <div class="w-full max -w-lg">
                     <div class="overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
@@ -49,7 +50,21 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="flex flex-col items-center mt-8">
+                <div class="w-full max -w-lg">
+                    <div class="overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="p-4">
+                            <h3 class="mb-2 text-xl font-bold text-center text-gray-800 dark:text-gray-100">
+                                No User Details Found
+                            </h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforelse
+
 
         <!-- create a dialog element -->
         <dialog id="resume_modal"
