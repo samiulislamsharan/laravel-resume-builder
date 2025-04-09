@@ -31,10 +31,10 @@
                                         class="px-4 py-2 ml-4 text-sm text-white bg-green-500 rounded hover:bg-green-600">
                                         Resume
                                     </a> --}}
-                                    <a onclick="resume_modal.showModal()"
+                                    <button type="button" onclick="resume_modal.showModal()"
                                         class="px-4 py-2 ml-4 text-sm text-white bg-green-500 rounded hover:bg-green-600">
                                         Resume
-                                    </a>
+                                    </button>
                                     <form action="{{ route('user-detail.destroy', $userDetail->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
